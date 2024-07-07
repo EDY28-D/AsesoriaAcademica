@@ -1,0 +1,48 @@
+.modal-header-custom {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .modal-title-custom {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .modal-footer-custom {
+    background-color: #ecf0f1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .modal-body-custom {
+    background-color: #ecf0f1;
+    padding: 1.5rem;
+  }
+  
+  .btn-close-custom {
+    background: transparent;
+    border: none;
+    color: #ecf0f1;
+  }
+  
+  .btn-close-custom:hover {
+    color: #e74c3c;
+  }
+  
+  .form-label-custom {
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  .form-control-custom {
+    border-radius: 10px;
+    border: 1px solid #bdc3c7;
+  }
+  
+  .form-control-custom:focus {
+    border-color: #2980b9;
+    box-shadow: none;
+  }
+  

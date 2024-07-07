@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h5 class="modal-title">{{ appointment ? 'Editar Cita' : 'Nueva Cita' }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formularioAppointment">
+      <div class="mb-3">
+        <label for="professorId" class="form-label">Profesor ID</label>
+        <input type="text" id="professorId" class="form-control" formControlName="professorId">
+      </div>
+      <div class="mb-3">
+        <label for="studentId" class="form-label">Estudiante ID</label>
+        <input type="text" id="studentId" class="form-control" formControlName="studentId">
+      </div>
+      <div class="mb-3">
+        <label for="calendarId" class="form-label">Calendario ID</label>
+        <input type="text" id="calendarId" class="form-control" formControlName="calendarId">
+      </div>
+      <div class="mb-3">
+        <label for="dateTime" class="form-label">Fecha y Hora</label>
+        <input type="datetime-local" id="dateTime" class="form-control" formControlName="dateTime">
+      </div>
+      <div class="mb-3">
+        <label for="professorProgress" class="form-label">Progreso Profesor</label>
+        <input type="text" id="professorProgress" class="form-control" formControlName="professorProgress">
+      </div>
+      <div class="mb-3">
+        <label for="studentProgress" class="form-label">Progreso Estudiante</label>
+        <input type="text" id="studentProgress" class="form-control" formControlName="studentProgress">
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Estado</label>
+        <input type="text" id="status" class="form-control" formControlName="status">
+      </div>
+      <div class="mb-3">
+        <label for="googleEventId" class="form-label">Google Event ID</label>
+        <input type="text" id="googleEventId" class="form-control" formControlName="googleEventId">
+      </div>
+      <div class="mb-3">
+        <label for="deleted" class="form-label">Deleted</label>
+        <input type="text" id="deleted" class="form-control" formControlName="deleted">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="guardarAppointment()">Guardar</button>
+  </div>
+  

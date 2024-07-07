@@ -1,0 +1,12 @@
+<div class="modal-header modal-header-custom">
+    <h5 class="modal-title modal-title-custom">Eliminar Cita</h5>
+    <button type="button" class="btn-close btn-close-custom" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body modal-body-custom">
+    <p>¿Estás seguro de que quieres eliminar esta cita?</p>
+  </div>
+  <div class="modal-footer modal-footer-custom">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Cancelar</button>
+    <button type="button" class="btn btn-danger btn-danger-custom" (click)="eliminarAppointment()">Eliminar</button>
+  </div>
+  
