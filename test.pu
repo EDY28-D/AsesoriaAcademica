@@ -1,0 +1,26 @@
+@startuml
+
+actor Hacker
+
+package "Red del Casino" {
+    node "Router Principal" as Router
+    node "Switch 1" as Switch1
+    node "Switch 2" as Switch2
+    node "Servidor de Base de Datos de Jugadores de Alto Valor" as Database
+    node "Termómetro Inteligente (IoT)" as Thermometer
+    node "Estación de Trabajo" as Workstation
+
+    Router -down-> Switch1 : Conexión Principal
+    Router -down-> Switch2 : Conexión Secundaria
+    Switch1 -down-> Database : Conexión de Datos
+    Switch1 -down-> Thermometer : Conexión IoT
+    Switch2 -down-> Workstation : Conexión de Usuario
+}
+
+Hacker -down-> Thermometer : Ataque Inicial
+Thermometer --> Switch1 : Conexión a la Red
+Switch1 --> Database : Movimiento Lateral
+Switch1 --> Workstation : Exploración de la Red
+Database <-- Switch1 : Acceso a Datos Valiosos
+
+@enduml

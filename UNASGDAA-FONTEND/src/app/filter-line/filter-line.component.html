@@ -1,0 +1,8 @@
+
+    <label for="inputLinea">{{ 'LINE' | translate }}</label>
+    <select class="form-control" id="inputLinea" [(ngModel)]="selectedLine" (change)="onLineChange()">
+      <option value="ALL">{{ 'ALL' | translate }}</option>
+      <option *ngFor="let line of lines" [value]="line.name">{{ line.name }}</option>
+    </select>
+
+  

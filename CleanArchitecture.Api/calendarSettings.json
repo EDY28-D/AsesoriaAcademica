@@ -1,0 +1,28 @@
+{
+  "credentialsPath": "../Credentials/credentials.json",
+  "limitOfAbsences": 5,
+  "tokenPath": "../Credentials/token.json",
+  "user": "user",
+  "fileDataStore": true,
+  "applicationName": "Google Calendar API .NET Quickstart",
+  "calendarId": "primary",
+  "defaultTimeZone": "America/Lima",
+  "DefaultRecurrence": "RRULE:FREQ=DAILY;COUNT=1",
+  "useDefaultReminders": false,
+  "defaultReminders": [
+    {
+      "method": "email",
+      "minutes": 1440
+    },
+    {
+      "method": "popup",
+      "minutes": 10
+    }
+  ],
+  "showDeleted": false,
+  "singleEvents": true,
+  "maxResults": 10,
+  "orderBy": "startTime",
+  "cancelEventSuccess": true,
+  "cancelEventFailure": false
+}

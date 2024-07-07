@@ -1,0 +1,80 @@
+@startuml
+
+class Role {
+    + IdRole: INT <<PK>>
+    --
+    Name: VARCHAR(50)
+}
+
+class User {
+    + IdUser: INT <<PK>>
+    --
+    Name: VARCHAR(100)
+    Email: VARCHAR(100)
+    RoleId: INT <<FK>>
+}
+
+class ResearchGroup {
+    + IdResearchGroup: INT <<PK>>
+    + Code: VARCHAR(9)
+    --
+    Name: VARCHAR(100)
+}
+
+class ResearchLine {
+    + IdResearchLine: INT <<PK>>
+    + Code: VARCHAR(9)
+    --
+    Name: VARCHAR(100)
+    ResearchGroupId: INT <<FK>>
+}
+
+class Student {
+    + IdStudent: INT <<PK>>
+    + Code: INT(12)
+    --
+    UserId: INT <<FK>>
+}
+
+class Professor {
+    + IdProfessor: INT <<PK>>
+    --
+    UserId: INT <<FK>>
+    ResearchGroupId: INT <<FK>>
+    IsCoordinator: BOOLEAN 
+}
+
+class Appointment {
+    + IdAppointment: INT <<PK>>
+    --
+    ProfessorId: INT <<FK>>
+    StudentId: INT <<FK>>
+    CalendarId: INT <<FK>>
+    DateTime: DATETIME
+    ProfessorProgress: TEXT
+    StudentProgress: TEXT
+}
+
+class AdvisoryContract {
+    + IdContract: INT <<PK>>
+    --
+    ProfessorId: INT <<FK>>
+    StudentId: INT <<FK>>
+    ResearchLineId: INT <<FK>>
+    ThesisTopic: VARCHAR(255)
+    Message: TEXT
+    Status: VARCHAR(20)
+}
+
+Role "1" -- "0..*" User : "RoleId"
+ResearchGroup "1" -- "0..*" ResearchLine : "ResearchGroupId"
+User "1" -- "0..*" Student : "UserId"
+User "1" -- "0..*" Professor : "UserId"
+ResearchGroup "1" -- "0..*" Professor : "ResearchGroupId"
+Professor "1" -- "0..*" Appointment : "ProfessorId"
+Student "1" -- "0..*" Appointment : "StudentId"
+Professor "1" -- "0..*" AdvisoryContract : "ProfessorId"
+Student "1" -- "0..*" AdvisoryContract : "StudentId"
+ResearchLine "1" -- "0..*" AdvisoryContract : "ResearchLineId"
+
+@enduml

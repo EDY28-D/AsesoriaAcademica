@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: gestiondeasesoriaacademica1-db-1
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - mynetwork
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - mynetwork
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "DOIA9234JF"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mynetwork
+
+  app:
+    build:
+      context: .
+      dockerfile: CleanArchitecture.Api/Dockerfile
+    container_name: clean-architecture
+    depends_on:
+      - sqlserver
+      - redis
+      - rabbitmq
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=gestiondeasesoriaacademica1-db-1;Database=clean-architecture;User Id=sa;Password=YourStrong!Passw0rd;MultipleActiveResultSets=true;TrustServerCertificate=True
+      - RedisHostName=redis
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=admin
+      - RabbitMQ__Password=DOIA9234JF
+    ports:
+      - "80:80"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

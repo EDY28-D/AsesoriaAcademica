@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+#content {
+  padding: 20px;
+}
+.message-box {
+  background-color: #f7f7f7;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 100px !important;
+}
+.message-text {
+  margin: 0;
+}
